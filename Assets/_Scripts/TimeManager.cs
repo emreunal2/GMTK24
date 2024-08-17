@@ -39,10 +39,10 @@ public class TimeManager : MonoBehaviour
     void Update()
     {
         Debug.Log(Time.timeScale);
-        //if(Input.GetMouseButtonDown(1))
-        //{
-            //SetTimeScale(TimeScale.Speedup);
-        //}
+        if(Input.GetMouseButtonDown(1))
+        {
+            SetTimeScale(TimeScale.Speedup);
+        }
     }
 
     public void SetTimeScale(TimeScale timeScale)
