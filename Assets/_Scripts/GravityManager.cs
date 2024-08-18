@@ -34,29 +34,19 @@ public class GravityManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Update()
-    {
-        Debug.Log(Physics.gravity);
-        if(Input.GetMouseButtonDown(1))
-        {
-            SetGravityScale(GravityScale.Decreased);
-        }
-    }
-
     public void SetGravityScale(GravityScale gravityScale)
     {
         currentGravityScale = gravityScale;
         switch (currentGravityScale)
         {
             case GravityScale.Decreased:
-                Physics.gravity = new Vector3(0f,-4.9f,0f);
+                Physics2D.gravity = new Vector3(0f,-1.9f);
                 break;
             case GravityScale.Normal:
-                Physics.gravity = new Vector3(0f, -9.81f, 0f);
+                Physics2D.gravity = new Vector3(0f, -9.81f);
                 break;
             case GravityScale.Increased:
-                Physics.gravity = new Vector3(0f, -14.7f, 0f);
+                Physics2D.gravity = new Vector3(0f, -50.7f);
                 break;
         }
         OnGravityScaleChange?.Invoke(gravityScale);
