@@ -18,12 +18,28 @@ public class SceneController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        SceneManager.sceneLoaded += SceneManager_SceneLoaded;
     }
 
-    void Start()
+    void OnDisable()
     {
+        SceneManager.sceneLoaded -= SceneManager_SceneLoaded;
+    }
 
+    void SceneManager_SceneLoaded(Scene scene, LoadSceneMode mode) 
+    {
+        TimeManager.instance.SetTimeScale(TimeManager.TimeScale.Normal);
+        GravityManager.instance.SetGravityScale(GravityManager.GravityScale.Normal);
+
+        GameObject spawnPoint = GameObject.Find("SpawnPoint");
+        if (spawnPoint != null)
+        {
+            Player.Instance.transform.SetPositionAndRotation(spawnPoint.transform.position, spawnPoint.transform.rotation);
+        }
+        else
+        {
+            Debug.LogWarning("SpawnPoint does not exist");
+        }
     }
 
     public void LoadScene(string sceneName)
