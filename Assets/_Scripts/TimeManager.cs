@@ -16,8 +16,9 @@ public class TimeManager : MonoBehaviour
 
     public static TimeManager instance;
 
+    public TimeScale CurrentScale { get => currentScale; set => currentScale = value; }
 
-   public enum TimeScale
+    public enum TimeScale
     {
         Slowed = 1,
         Normal,
@@ -39,8 +40,8 @@ public class TimeManager : MonoBehaviour
 
     public void SetTimeScale(TimeScale timeScale)
     {
-        currentScale = timeScale;
-        switch (currentScale)
+        CurrentScale = timeScale;
+        switch (CurrentScale)
         {
             case TimeScale.Slowed:
                 Time.timeScale = 0.5f;
