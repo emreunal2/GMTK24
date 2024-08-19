@@ -6,9 +6,9 @@ using System;
 public class TimeManager : MonoBehaviour
 {
 
-    [SerializeField] float slowDownFloat ;
+    [SerializeField] float slowDownFloat;
     [SerializeField] float normalFloat;
-    [SerializeField] float speedUpFloat ;
+    [SerializeField] float speedUpFloat;
 
     [SerializeField] TimeScale currentScale = TimeScale.Normal;
 
@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
 
    public enum TimeScale
     {
-        Slowed,
+        Slowed = 1,
         Normal,
         Speedup,
     }
@@ -52,6 +52,7 @@ public class TimeManager : MonoBehaviour
                 break;
         }
         OnTimeScaleChange?.Invoke(timeScale);
+
     }
 
 }
