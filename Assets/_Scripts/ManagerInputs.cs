@@ -39,6 +39,11 @@ public class ManagerInputs : MonoBehaviour
         {
             GravityManager.instance.SetGravityScale(GravityManager.GravityScale.Increased);
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneController.Instance.RestartLevel();
+        }
         
     }
 }

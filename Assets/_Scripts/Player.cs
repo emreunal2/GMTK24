@@ -32,4 +32,10 @@ public class Player : MonoBehaviour
     {
         
     }
+
+    void PlayerDeath()
+    {
+        Destroy(gameObject);
+        SceneController.Instance.RestartLevel();
+    }
 }
